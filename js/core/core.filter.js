@@ -252,7 +252,8 @@ function _fnFilter( settings, input, force, regex, smart, caseInsensitive )
 		display = settings.aiDisplay;
 
 		for ( i=0 ; i<display.length ; i++ ) {
-			if ( rpSearch.test( settings.aoData[ display[i] ]._sFilterRow ) ) {
+			var rtl = settings.aoData[ display[i] ]._sFilterRow.replace(/\u200e/g, "");
+			if ( rpSearch.test( rtl ) ) {
 				filtered.push( display[i] );
 			}
 		}
